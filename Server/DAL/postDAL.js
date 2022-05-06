@@ -1,9 +1,9 @@
 require('../configs/mongodbConction')
-const commentModel = require('../models/comment')
+const postModel = require('../models/post')
 
-const getAllComments = () => {
+const getAllPosts = () => {
     return new Promise((resolve, reject) => {
-        commentModel.find({}, (error, data) => {
+        postModel.find({}, (error, data) => {
             if (error) {
                 reject(error);
             } else {
@@ -13,11 +13,11 @@ const getAllComments = () => {
     })
 }
 
-// getAllComment()
+// getAllPosts()
 
-const getComment = (id) => {
+const getPost = (id) => {
     return new Promise((resolve, reject) => {
-        commentModel.findById(id, (error, data) => {
+        postModel.findById(id, (error, data) => {
             if(error){
                 reject(error);
             }else {
@@ -27,12 +27,12 @@ const getComment = (id) => {
     })
 }
 
-// getComment('626bb46e43d71645d61d999f')
+// getPost('626bb46e43d71645d61d999f')
 
-const addComment = (obj) => {
-    const newComment = new commentModel(obj)
+const addPost = (obj) => {
+    const newPost = new postModel(obj)
     return new Promise((resolve, reject) => {
-        newComment.save( (error, data) => {
+        newPost.save( (error, data) => {
             if (error) {
                 reject(error);
             } else {
@@ -42,11 +42,11 @@ const addComment = (obj) => {
     })
 }
 
-// addComment({userId: 'you68', content: 'TEST'})
+// addPost({userId: 'you68', content: 'TEST'})
 
-const updateComment = (id, obj) => {
+const updatePost = (id, obj) => {
     return new Promise((resolve,  reject) => {
-        commentModel.findByIdAndUpdate(id, obj,  (error, data) => {
+        postModel.findByIdAndUpdate(id, obj,  (error, data) => {
             if(error) {
                 reject(error); 
             }else {
@@ -56,12 +56,12 @@ const updateComment = (id, obj) => {
     })
 }
 
-// updateComment('626bb46e43d71645d61d999f', {userId: 'youUpdateTEST'})
+// updatePost('626bb46e43d71645d61d999f', {userId: 'youUpdateTEST'})
 
 
-const deleteComment = (id) => {
+const deletePost = (id) => {
     return new Promise((resolve, reject) => {
-        commentModel.findByIdAndDelete(id,  (error, data) => {
+        postModel.findByIdAndDelete(id,  (error, data) => {
             if(error) {
                 reject(error);
             }else {
@@ -71,5 +71,7 @@ const deleteComment = (id) => {
     })
 }
 
-// deleteComment('626bb46e43d71645d61d999f')
-module.exports = {getAllComments, getComment, addComment, updateComment, deleteComment}
+
+// deletePost('626bb46e43d71645d61d999f')
+
+module.exports = {getAllPosts, getPost, addPost, updatePost, deletePost}

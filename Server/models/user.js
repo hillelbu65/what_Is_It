@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const post = new Schema ({
+const user = new Schema ({
     firstname: String,
     lastname: String,
     password: String,
-    level: String, 
-    profileimage: File,
+    email: String,
+    level: Number, 
     comments: Array
 })
 
