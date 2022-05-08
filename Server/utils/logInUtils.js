@@ -17,8 +17,8 @@ const singUp = async (newUserObject) => {
         if (filteredResolt.length > 0) {
             return ({
                 status: 'SingUp Error',
-                description: 'User olrdy exist',
-                from: 'singUp fuction in logInUtils file. (14-19)'
+                description: 'User olrdy exist.',
+                from: 'singUp fuction in logInUtils file.'
             });
 
         } else {
@@ -34,14 +34,6 @@ const singUp = async (newUserObject) => {
         };
     };
 };
-
-
-// singUp({
-//     firstname: 'Aron',
-//     lastname: 'Dror',
-//     password: 'Aa123456easy3',
-//     email: 'hillelbu76@gmail.test3'
-// });
 
 const logIn = async (email, password) => {
     const allUserFromDBInArraay = await getAllUsers();
@@ -67,10 +59,4 @@ const logIn = async (email, password) => {
     }
 }
 
-
-// logIn('hillelbu76@gmail.coee', 'Aa123456easy')
-
-
-// const pullPasswordByIdandcompare = (id) => {
-//     console.log(getUser(id))  
-// }
+module.exports = {singUp, logIn}
